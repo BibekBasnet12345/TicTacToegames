@@ -12,8 +12,9 @@ public class tictactoe implements ActionListener {
     JButton [] buttons=new JButton[9];
     boolean player1_turn;
     tictactoe(){
+        jFrame.setTitle("Tic-Tac-Toe");
         jFrame.setSize(800,800);
-        jFrame.setBounds(130,50,800,700);
+        jFrame.setBounds(10,50,800,700);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.getContentPane().setBackground(new Color(50,50,50));
         jFrame.setLayout(new BorderLayout());
@@ -66,11 +67,11 @@ public class tictactoe implements ActionListener {
                         textfield.setText("X turn");
                         textfield.setForeground(Color.RED);
                         check();
-
                     }
                 }
             }
         }
+
     }
     public  void firstTurn()  {
         try {
@@ -88,73 +89,97 @@ public class tictactoe implements ActionListener {
     }
     public void check(){
         //checks X condition;
-        if((buttons[0].getText()=="X") &&
+       if(      (buttons[0].getText()=="X") &&
                 (buttons[1].getText()=="X") &&
                 (buttons[2].getText()=="X"))
-        {Xwins(0,1,2);}
-        if( (buttons[3].getText()=="X") &&
+                {Xwins(0,1,2);}
+       else if( (buttons[3].getText()=="X") &&
                 (buttons[4].getText()=="X") &&
                 (buttons[5].getText()=="X"))
-        {Xwins(3,4,5);}
-        if( (buttons[6].getText()=="X") &&
+                {Xwins(3,4,5);}
+       else if( (buttons[6].getText()=="X") &&
                 (buttons[7].getText()=="X") &&
                 (buttons[8].getText()=="X"))
-        {Xwins(6,7,8);}
-        if( (buttons[0].getText()=="X") &&
+                 {Xwins(6,7,8);}
+       else if( (buttons[0].getText()=="X") &&
                 (buttons[3].getText()=="X") &&
                 (buttons[6].getText()=="X"))
-        {Xwins(0,3,6);}
-        if( (buttons[1].getText()=="X") &&
+                 {Xwins(0,3,6);}
+       else if( (buttons[1].getText()=="X") &&
                 (buttons[4].getText()=="X") &&
                 (buttons[7].getText()=="X"))
-        {Xwins(1,4,7);}
-        if( (buttons[2].getText()=="X") &&
+                {Xwins(1,4,7);}
+       else if( (buttons[2].getText()=="X") &&
                 (buttons[5].getText()=="X") &&
                 (buttons[8].getText()=="X"))
-        {Xwins(2,5,8);}
-        if( (buttons[0].getText()=="X") &&
+                 {Xwins(2,5,8);}
+       else if( (buttons[0].getText()=="X") &&
                 (buttons[4].getText()=="X") &&
                 (buttons[8].getText()=="X"))
-        {Xwins(0,4,8);}
-        if( (buttons[2].getText()=="X") &&
+                 {Xwins(0,4,8);}
+       else if( (buttons[2].getText()=="X") &&
                 (buttons[4].getText()=="X") &&
                 (buttons[6].getText()=="X"))
-        {Xwins(2,4,6);}
+                 {Xwins(2,4,6);}
         //check O condition
-        if((buttons[0].getText()=="O") &&
+       else if( (buttons[0].getText()=="O") &&
                 (buttons[1].getText()=="O") &&
                 (buttons[2].getText()=="O"))
-        {Owins(0,1,2);}
-        if( (buttons[3].getText()=="O") &&
+                 {Owins(0,1,2);}
+       else if( (buttons[3].getText()=="O") &&
                 (buttons[4].getText()=="O") &&
                 (buttons[5].getText()=="O"))
-        {Owins(3,4,5);}
-        if( (buttons[6].getText()=="O") &&
+                 {Owins(3,4,5);}
+       else if( (buttons[6].getText()=="O") &&
                 (buttons[7].getText()=="O") &&
                 (buttons[8].getText()=="O"))
-        {Owins(6,7,8);}
-        if( (buttons[0].getText()=="O") &&
+                 {Owins(6,7,8);}
+       else if( (buttons[0].getText()=="O") &&
                 (buttons[3].getText()=="O") &&
                 (buttons[6].getText()=="O"))
-        {Owins(0,3,6);}
-        if( (buttons[1].getText()=="O") &&
+                 {Owins(0,3,6);}
+       else if( (buttons[1].getText()=="O") &&
                 (buttons[4].getText()=="O") &&
                 (buttons[7].getText()=="O"))
-        {Owins(1,4,7);}
-        if( (buttons[2].getText()=="O") &&
+                {Owins(1,4,7);}
+       else if( (buttons[2].getText()=="O") &&
                 (buttons[5].getText()=="O") &&
                 (buttons[8].getText()=="O"))
-        {Owins(2,5,8);}
-        if( (buttons[0].getText()=="O") &&
+                 {Owins(2,5,8);}
+       else  if( (buttons[0].getText()=="O") &&
                 (buttons[4].getText()=="O") &&
                 (buttons[8].getText()=="O"))
-        {Owins(0,4,8);}
-        if( (buttons[2].getText()=="O") &&
+                {Owins(0,4,8);}
+       else if( (buttons[2].getText()=="O") &&
                 (buttons[4].getText()=="O") &&
                 (buttons[6].getText()=="O"))
-        {Owins(2,4,6);}
+                {Owins(2,4,6);}
+            //checks draw
+       else if((buttons[0].getText()!="")&&
+               (buttons[1].getText()!="")&&
+               (buttons[2].getText()!="")&&
+               (buttons[3].getText()!="")&&
+               (buttons[4].getText()!="")&&
+               (buttons[5].getText()!="")&&
+               (buttons[6].getText()!="")&&
+               (buttons[7].getText()!="")&&
+               (buttons[8].getText()!=""))
+                {Draw();}
     }
     public  void  Xwins(int a,int b,int c){
+        JFrame xwins=new JFrame("X-wins");
+        xwins.setBounds(820,120,520,300);
+        xwins.getContentPane().setBackground(new Color(255,153,153));
+        xwins.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        xwins.setVisible(true);
+
+        JLabel jl=new JLabel(" X-wins");
+
+        jl.setFont(new Font("MV Boli",Font.BOLD, 120));
+        jl.setBounds(15,5,25,10);
+        jl.setForeground(new Color(255,0,0));
+        xwins.add(jl);
+
         buttons[a].setBackground(Color.RED);
         buttons[b].setBackground(Color.RED);
         buttons[c].setBackground(Color.RED);
@@ -163,8 +188,21 @@ public class tictactoe implements ActionListener {
         }
         textfield.setText("X-wins");
         textfield.setForeground(Color.RED);
+        jFrame.setTitle("X-wins");
     }
     public void Owins(int a,int b,int c){
+        JFrame owins=new JFrame("O-wins");
+        owins.setBounds(820,120,520,300);
+        owins.getContentPane().setBackground(new Color(152,255,152));
+        owins.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        owins.setVisible(true);
+
+        JLabel jl=new JLabel(" O-wins");
+        jl.setFont(new Font("MV Boli",Font.BOLD, 120));
+        jl.setBounds(5,2,25,10);
+        jl.setForeground(Color.GREEN);
+        owins.add(jl);
+
         buttons[a].setBackground(Color.GREEN);
         buttons[b].setBackground(Color.GREEN);
         buttons[c].setBackground(Color.GREEN);
@@ -173,7 +211,32 @@ public class tictactoe implements ActionListener {
         }
         textfield.setText("O-wins");
         textfield.setForeground(Color.GREEN);
+        jFrame.setTitle("O-wins");
+    }
+    public  void  Draw(){
+        JFrame draw=new JFrame("Draw");
+        draw.setBounds(820,120,520,300);
+        draw.getContentPane().setBackground(new Color(255,255,190));
+        draw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        draw.setVisible(true);
+
+        JLabel jl=new JLabel("  Draw");
+
+        jl.setFont(new Font("MV Boli",Font.BOLD, 120));
+        jl.setBounds(5,5,25,10);
+        jl.setForeground(new Color(255,255,0));
+        draw.add(jl);
+
+
+        for (int j=0;j<9;j++){
+            buttons[j].setBackground(new Color(255,255,0));
+            buttons[j].setEnabled(false);
+        }
+        textfield.setText("Draw");
+        textfield.setForeground(new Color(255,255,0));
+        jFrame.setTitle("Draw");
+    }
     }
 
-}
+
 
